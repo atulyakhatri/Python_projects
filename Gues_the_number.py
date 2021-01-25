@@ -1,3 +1,4 @@
+#Guess the number game
 print("You have to comlete this in 5 rounds")
 n = 18
 y = 5
