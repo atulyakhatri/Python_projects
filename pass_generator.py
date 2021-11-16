@@ -39,22 +39,21 @@ def w_checker(test):# Checking the password
     if (digit_check.search(test) ==None):# it should contain digits
         print("Enter any of the digits")
     if (cap_check.search(test) ==None):# it should contain capital letters
-        print("Enter any of the Capitals")
+        print("Enter any of the Capital letters")
     if (small_check.search(test) == None):#It should contain small letters
-        print("Enter any of the small")
+        print("Enter any of the small letters")
 
 def gen_check():#creating  a function for generating and checking the password
-    a = 6
-    while a>5:#Creating awhile loop
-        word = input("Enter password or we can suggest enter suggest for suggestion:\n")
-        #Getting the password from the user
-        if word== "suggest":#Asking for password suggestion
-            print(f"This is your password '{password()}'")
-            a = 0
-        else:#Checking the user given password
-            w_checker(word)
-            print("Thanks")
-            a = 0
+    word = input("Enter password or we can suggest enter suggest for suggestion:\n")
+    #Getting the password from the user
+    if word== "suggest":#Asking for password suggestion
+        print(f"This is your password '{password()}'")
 
-if __name__ =="_main_":
+    else:#Checking the user given password
+        w_checker(word)
+        print("fine")
+    print("Thanks")
+    
+
+if __name__ == "__main__":
     gen_check()
