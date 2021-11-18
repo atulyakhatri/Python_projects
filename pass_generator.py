@@ -4,22 +4,21 @@ import random
 import re
 from functools import reduce
 
-punc = [] #It will contain passwords
 def password(): #creating a password generating function 
     """This is a password generator"""
-    global punc,word
+    store = [] #It will contain passwords
     for i in range(4):# using string module to generate the password
         cap = random.choice(string.ascii_uppercase)
-        punc += cap
+        store += cap
         small = random.choice(string.ascii_lowercase)
-        punc += small
+        store += small
         digit = random.choice(string.digits)
-        punc += digit
+        store += digit
         punct = random.choice(string.punctuation)
-        punc += punct
-    random.shuffle(punc)# Shuffling it
-    random.shuffle(punc)# Shuffling it again 
-    word = reduce((lambda x,y:x+y),punc)#Making the password a string
+        store += punct
+    random.shuffle(store)# Shuffling it
+    random.shuffle(store)# Shuffling it again 
+    word = reduce((lambda x,y:x+y),store)#Making the password a string
     return word
 
 def w_checker(test):# Checking the password
@@ -39,20 +38,20 @@ def w_checker(test):# Checking the password
     if (digit_check.search(test) ==None):# it should contain digits
         print("Enter any of the digits")
     if (cap_check.search(test) ==None):# it should contain capital letters
-        print("Enter any of the Capital letters")
+        print("Enter any of the Capitals")
     if (small_check.search(test) == None):#It should contain small letters
-        print("Enter any of the small letters")
+        print("Enter any of the small")
 
 def gen_check():#creating  a function for generating and checking the password
     word = input("Enter password or we can suggest enter suggest for suggestion:\n")
     #Getting the password from the user
     if word== "suggest":#Asking for password suggestion
         print(f"This is your password '{password()}'")
-
+        print("Thanks")
     else:#Checking the user given password
         w_checker(word)
-        print("fine")
-    print("Thanks")
+        print("Fine")
+    
     
 
 if __name__ == "__main__":
